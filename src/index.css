@@ -4,14 +4,18 @@
 
 @layer components{
   body{
-    background-color :#151511;
+    background-color : var(--bg-primary);
     color:#fff;
+    font-family: "Roboto Mono", monospace;
 
   }
 
 }
 @layer base{
   :root{
+    --bg-primary:#151511;
+    --c-green:#3fa603a9;
     --c-gray-light:#ffffff99;
+    --c-gray-dark:#31313199;
   }
 }

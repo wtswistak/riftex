@@ -3,7 +3,7 @@ import Logo from "./Logo"
 
 function Header() {
   return (
-    <div className="flex justify-between items-center px-7 py-6">
+    <div className="flex justify-between items-center px-10 py-5">
       <Logo/>
       <HeaderSearch/>
     </div>
