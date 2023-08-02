@@ -1,21 +1,17 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Applayout from "./ui/Applayout";
-import Dashboard from "./pages//Dashboard";
-
-
+import Homepage from "./pages//Homepage";
 
 function App() {
-  return(
- <BrowserRouter>
- <Routes>
-   <Route element={<Applayout/>}>
-   <Route index element={<Dashboard/>}/>
-
-   </Route>
- </Routes>
- </BrowserRouter>
-  )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Applayout />}>
+          <Route index element={<Homepage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
