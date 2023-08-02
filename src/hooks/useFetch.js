@@ -8,6 +8,7 @@ const useFetch = (endpoint, initialPage) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(initialPage);
+  console.log(data);
 
   useEffect(() => {
     const fetchData = async () => {
