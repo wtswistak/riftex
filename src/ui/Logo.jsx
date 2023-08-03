@@ -5,7 +5,7 @@ function Logo() {
     <Link to="/">
       <div className="flex items-center">
         <img
-          src="logo.png"
+          src="../src/assets/logo.png"
           alt="logo-controller"
           className="w-[28px] h-[19px] mr-1.5"
         />

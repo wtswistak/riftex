@@ -4,10 +4,10 @@ import axios from "axios";
 const API_URL = "https://api.rawg.io/api/";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-const useFetch = (endpoint, initialPage) => {
+const useFetch = (endpoint, filter) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(initialPage);
+  const [page, setPage] = useState(1);
   console.log(data);
 
   useEffect(() => {
@@ -15,10 +15,8 @@ const useFetch = (endpoint, initialPage) => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}`
+          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
         );
-        console.log(page);
-
         setData([...data, ...response.data.results]);
       } catch {
         throw Error("Failed fetch data");

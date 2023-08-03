@@ -1,10 +1,10 @@
 import PlatformItem from "./PlatformItem";
 import { platforms } from "../data/data-platforms";
 
-function List() {
+function PlatformList() {
   return platforms.map((platform) => (
     <PlatformItem key={platform.id} platform={platform} />
   ));
 }
 
-export default List;
+export default PlatformList;
