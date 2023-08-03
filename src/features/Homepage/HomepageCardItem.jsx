@@ -28,7 +28,7 @@ function HomepageCardItem({ game }) {
           {game.genres.map((genre, i) => (
             <p
               key={genre.id}
-              className="px-2 py-1 text-sm bg-[var(--dark-gray)] rounded-md"
+              className="px-2 py-1 text-sm bg-[var(--dark-gray)] text-stone-200 rounded-md"
             >
               {genre.name}
             </p>

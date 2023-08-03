@@ -16,6 +16,10 @@
     background-size: 20% 50%;
     animation: loading 1s infinite linear;
   }
+  .active {
+    width: 100% !important;
+    background-color: red;
+  }
 
   @keyframes loading {
     20% {
