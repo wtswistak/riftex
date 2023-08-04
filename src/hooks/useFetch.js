@@ -9,6 +9,7 @@ const useFetch = (endpoint, filter) => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   console.log(data);
+  filter = filter ? filter : "";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,10 @@ const useFetch = (endpoint, filter) => {
         const response = await axios.get(
           `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
         );
-        setData([...data, ...response.data.results]);
+
+        response.data.results
+          ? setData([...data, ...response.data.results])
+          : setData(response.data);
       } catch {
         throw Error("Failed fetch data");
       } finally {

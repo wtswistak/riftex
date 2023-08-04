@@ -24,10 +24,10 @@ function HomepageList({ endpoint, filter }) {
 
   return (
     <div className="grid  items-start gap-y-7 mb-16 gap-x-5 pl-5 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-      {isLoading && <Loader />}
       {data.map((game) => (
         <HomepageCardItem key={game.id} game={game} />
       ))}
+      {isLoading && <Loader />}
     </div>
   );
 }

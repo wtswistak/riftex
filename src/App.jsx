@@ -3,6 +3,7 @@ import Applayout from "./ui/Applayout";
 import Homepage from "./pages//Homepage";
 import Platform from "./pages/Platform";
 import NotPageFound from "./pages/NotPageFound";
+import Game from "./pages/Game";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route element={<Applayout />}>
           <Route index element={<Homepage />} />
           <Route path="platforms/:id" element={<Platform />} />
+          <Route path="games/:id" element={<Game />} />
         </Route>
         <Route path="*" element={<NotPageFound />} />
       </Routes>

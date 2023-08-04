@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { platforms } from "../../data/data-platforms";
 
 function HomepageCardItem({ game }) {
@@ -6,14 +7,14 @@ function HomepageCardItem({ game }) {
       <img
         src={game.background_image}
         alt={game.name}
-        className=" w-full rounded-t-xl min-h-[25vh] max-h-[40vh] object-cover "
+        className=" w-full rounded-t-xl min-h-[22vh] max-h-[40vh] object-cover "
       />
       <div className="p-3">
         <div className="flex gap-2 my-1 ">
           {game.parent_platforms.map(({ platform }) =>
             platforms.map((item) => {
               return (
-                item.id === platform.id && (
+                item.logoId === platform.id && (
                   <span key={item.id} className="text-sm ">
                     {item.logo}
                   </span>
@@ -22,7 +23,9 @@ function HomepageCardItem({ game }) {
             })
           )}
         </div>
-        <h1 className="text-2xl font-semibold mb-2 ">{game.name}</h1>
+        <Link key={game.id} to={`/games/${game.id}`}>
+          <h1 className="text-2xl font-semibold mb-2 ">{game.name}</h1>
+        </Link>
 
         <div className="flex gap-1 flex-wrap ">
           {game.genres.map((genre, i) => (

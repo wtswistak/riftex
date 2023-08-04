@@ -8,7 +8,7 @@ function PlatformItem({ platform, setActivePlatform, activePlatform }) {
   return (
     <Link
       key={platform.id}
-      to={`/platforms/${platform.id === 2 ? 18 : platform.id}`}
+      to={`/platforms/${platform.id}`}
       className={`flex items-center mb-1 py text-lg py-0.5 relative group `}
       onClick={handleClick}
     >
