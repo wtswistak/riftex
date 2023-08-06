@@ -6,7 +6,7 @@ function GameStoreSite({ storeData }) {
     <Link
       to={`https://${store.domain} `}
       target="_blank"
-      className="py-2 px-4 bg-neutral-700 rounded-lg text-neutral-200"
+      className="py-2 px-4 font-semibold bg-neutral-800 text-sm rounded-lg text-neutral-200 duration-200 hover:bg-[var(--c-green)]"
     >
       {store.name}
     </Link>
