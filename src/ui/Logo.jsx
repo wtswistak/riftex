@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center z-[10]">
+    <Link to="/" className="flex items-center z-10 ">
       <img
         src="../src/assets/logo.png"
         alt="logo-controller"

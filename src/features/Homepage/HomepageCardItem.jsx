@@ -7,7 +7,7 @@ function HomepageCardItem({ game }) {
       <img
         src={game.background_image}
         alt={game.name}
-        className=" w-full rounded-t-xl h-auto min-h-[150px] object-cover "
+        className=" w-full rounded-t-xl h-auto min-h-[150px] object-cover aspect-[16/10] "
       />
       <div className="p-3">
         <div className="flex justify-between items-center mb-2 ">
@@ -35,17 +35,6 @@ function HomepageCardItem({ game }) {
             {game.name}
           </h1>
         </Link>
-
-        {/* <div className="flex gap-1 flex-wrap ">
-          {game.genres.map((genre, i) => (
-            <p
-              key={genre.id}
-              className="px-2 py-1 text-sm bg-[var(--dark-gray)] text-stone-200 rounded-sm"
-            >
-              {genre.name}
-            </p>
-          ))}
-        </div> */}
       </div>
     </div>
   );
