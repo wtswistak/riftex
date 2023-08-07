@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function PlatformItem({ platform, setActivePlatform, activePlatform }) {
+function PlatformLink({ platform, setActivePlatform, activePlatform }) {
   const handleClick = () => {
     setActivePlatform(platform.id);
   };
@@ -23,4 +23,4 @@ function PlatformItem({ platform, setActivePlatform, activePlatform }) {
   );
 }
 
-export default PlatformItem;
+export default PlatformLink;

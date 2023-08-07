@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { platforms } from "../../data/data-platforms";
+import HomeapagePlatforms from "./HomeapagePlatforms";
 
 function HomepageCardItem({ game }) {
   return (
@@ -11,19 +11,7 @@ function HomepageCardItem({ game }) {
       />
       <div className="p-3">
         <div className="flex justify-between items-center mb-2 ">
-          <div className="flex gap-2 my-1 ">
-            {game.parent_platforms.map(({ platform }) =>
-              platforms.map((item) => {
-                return (
-                  item.logoId === platform.id && (
-                    <span key={item.id} className="text-sm ">
-                      {item.logo}
-                    </span>
-                  )
-                );
-              })
-            )}
-          </div>
+          <HomeapagePlatforms game={game} />
           {game.metacritic ? (
             <span className="text-sm font-semibold py-0.5 px-[6px] outline outline-1 outline-[var(--c-green)] text-[var(--c-green)] rounded-sm">
               {game.metacritic}

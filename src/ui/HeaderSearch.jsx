@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import GameSearch from "../features/Game/GameSearchResults";
-import useFetch from "../hooks/useFetch";
+import SearchResults from "../features/Game/SearchResults";
 
 function HeaderInput() {
   const [query, setQuery] = useState("");
-  const { data, isLoading } = useFetch("games", `search=${query}`);
 
   function handleQuery(newQuery) {
     setQuery(newQuery);
@@ -26,7 +24,7 @@ function HeaderInput() {
         />
       </form>
       {query.length > 1 && (
-        <GameSearch data={data.results} clearQuery={clearQuery} />
+        <SearchResults query={query} clearQuery={clearQuery} />
       )}
     </>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PlatformItem from "./PlatformItem";
+import PlatformLink from "./PlatformLink";
 import { platforms } from "../data/data-platforms";
 import { useLocation } from "react-router-dom";
 
@@ -13,7 +13,7 @@ function PlatformList() {
   }, [location]);
 
   return platforms.map((platform) => (
-    <PlatformItem
+    <PlatformLink
       key={platform.id}
       platform={platform}
       setActivePlatform={setActivePlatform}
