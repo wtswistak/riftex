@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/search"
-  to = "https://api.rawg.io/api/"
+  from = "/games"
+  to = "https://api.rawg.io/api/:splat"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
