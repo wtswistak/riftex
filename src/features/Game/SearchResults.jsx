@@ -7,9 +7,6 @@ function SearchResults({ query, clearQuery }) {
   const [isClosed, setIsClosed] = useState(false);
   const { data, isLoading } = useFetch("games", `search=${query}`);
 
-  if (isLoading) {
-    return <Loader />; // Wyświetl informację o ładowaniu
-  }
   if (isClosed) return null;
 
   const handleClosing = () => {
@@ -18,7 +15,8 @@ function SearchResults({ query, clearQuery }) {
   };
   return (
     <div className=" absolute z-[5]  grid h-max 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 gap-5 px-10 top-0  bottom-0 left-0 right-0 bg-[var(--bg-primary)] py-24 ">
-      {data.results.map((game) => {
+      {isLoading && <Loader />}
+      {data.results?.map((game) => {
         return (
           <Link
             to={`/games/${game.id}`}
