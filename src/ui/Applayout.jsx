@@ -6,7 +6,7 @@ function Applayout() {
   return (
     <>
       <Header />
-      <div className="flex pt-6 pr-10">
+      <div className="flex pt-6 pr-10 max-md:px-4 max-lg:pr-4">
         <Sidebar />
         <Outlet />
       </div>

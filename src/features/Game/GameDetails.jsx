@@ -8,7 +8,7 @@ import GameBg from "./GameBg";
 function GameDetails({ data }) {
   return (
     <>
-      <div className="pb-20 ml-20 max-xl:ml-4  ">
+      <div className="pb-20 ml-20 max-xl:ml-4 max-md:mr-4 ">
         <div className="flex items-center  mb-2">
           <h1 className="text-6xl flex items-center ">{data.name}</h1>
         </div>
