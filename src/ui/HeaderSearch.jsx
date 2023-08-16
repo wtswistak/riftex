@@ -18,11 +18,11 @@ function HeaderInput() {
 
   return (
     <>
-      <form className="z-10 text-[var(--c-gray-light)] text-2xl bg-neutral-700 flex w-1/5 min-w-max items-center rounded-full px-4 transition-all ease-in duration-200 hover:w-2/4 focus-within:w-2/4 ">
-        <FiSearch color="var(--c-gray-light)" />{" "}
+      <form className=" max-md:px-[10px] max-md:py-2  max-md:w-0 z-10 text-[var(--c-gray-light)] text-2xl bg-neutral-700 flex w-1/5 min-w-max items-center rounded-full px-4 transition-all ease-in duration-200 focus-within:w-2/4 max-md:focus-within:w-4  group">
+        <FiSearch color="var(--c-gray-light)" className="max-md:w-5" />{" "}
         <input
           placeholder="Search game"
-          className=" placeholder:text-[--c-gray-light] w-full h-11 text-sm focus:outline-none focus:ring-yellow-500 px-2 bg-neutral-700"
+          className="max-md:w-0  transition-all ease-in duration-300 max-md:text-sm max-md:h-6 group-focus-within:max-md:w-full  placeholder:text-[--c-gray-light] w-full h-11 text-sm focus:outline-none focus:ring-yellow-500 px-2 bg-neutral-700"
           value={query}
           onChange={(e) => {
             handleQuery(e.target.value);
@@ -31,10 +31,19 @@ function HeaderInput() {
             if (e.target.value === "") setHideCloseIcon(true);
           }}
         />
-        <Link onClick={() => setIsResultsClosed(true)}>
+        <Link
+          to="#"
+          className="max-md:w-auto"
+          onClick={() => {
+            setIsResultsClosed(true);
+            setHideCloseIcon(true);
+            setQuery("");
+          }}
+        >
           <TfiClose
-            fontWeight="bold"
-            className={`text-xl ${hideCloseIcon ? "invisible" : "visible"}`}
+            className={`text-xl max-md:text-lg ${
+              hideCloseIcon ? "invisible" : "visible"
+            }  ${hideCloseIcon ? "max-md:w-0" : "max-md:w-auto"}`}
           />
         </Link>
       </form>
