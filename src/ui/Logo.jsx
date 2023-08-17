@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
-function Logo() {
+function Logo({ isLogoVisible }) {
+  if (!isLogoVisible) return null;
   return (
-    <Link to="/" className="flex items-center z-10 ">
+    <Link to="/" className="flex items-center z-10 max-md:h-[40px] ">
       <img
         src="../public/logo.png"
         alt="logo-controller"

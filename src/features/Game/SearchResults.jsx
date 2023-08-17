@@ -8,6 +8,8 @@ function SearchResults({
   clearQuery,
   setHideCloseIcon,
   isResultsClosed,
+  setIsInputExpanded,
+  setIsLogoVisible,
 }) {
   const { data, isLoading } = useFetch("games", `search=${query}`);
   // isResultsClosed = false;
@@ -17,6 +19,8 @@ function SearchResults({
     isResultsClosed = true;
     clearQuery();
     setHideCloseIcon(true);
+    setIsInputExpanded(false);
+    setIsLogoVisible(true);
   };
   return (
     <div className=" absolute z-[5]  grid h-max 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 gap-5 px-10 top-0  bottom-0 left-0 right-0 bg-[var(--bg-primary)] py-24 ">
