@@ -1,15 +1,14 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SearchResults from "../features/Game/SearchResults";
 import { TfiClose } from "react-icons/tfi";
-import { Link } from "react-router-dom";
+import SearchInput from "./SearchInput";
 
 function HeaderInput({ setIsLogoVisible }) {
   const [query, setQuery] = useState("");
   const [hideCloseIcon, setHideCloseIcon] = useState(true);
   const [isResultsClosed, setIsResultsClosed] = useState(false);
-  const [isInputExpanded, setIsInputExpanded] = useState(false);
-  const ref = useRef(null);
+  const [isInputClosed, setIsInputClosed] = useState(true);
 
   function handleQuery(newQuery) {
     setQuery(newQuery);
@@ -17,66 +16,52 @@ function HeaderInput({ setIsLogoVisible }) {
   function clearQuery() {
     setQuery("");
   }
+  function toggleSetters(flag) {
+    setIsInputClosed(flag);
+    setIsLogoVisible(flag);
+    setHideCloseIcon(flag);
+  }
 
   return (
     <>
       <form
         className={`max-md:px-[10px] ${
-          isInputExpanded ? "max-md:w-full" : "max-md:w-auto"
+          isInputClosed ? "max-md:w-auto" : "max-md:w-full"
         } max-md:py-2 z-10 text-[var(--c-gray-light)] text-2xl bg-neutral-700 items-center rounded-full px-4 transition-all ease-in duration-200 flex`}
       >
         <FiSearch
+          onClick={() => {
+            toggleSetters(false);
+          }}
           color="var(--c-gray-light)"
           className="max-md:w-5 max-md:cursor-pointer"
-          onClick={() => {
-            ref.current.focus();
-            setIsInputExpanded(true);
-            setIsLogoVisible(false);
-            setHideCloseIcon(false);
-            console.log("1");
-          }}
         />
-        <input
-          autoFocus
-          placeholder="Search game"
-          className={`max-md:text-sm max-md:h-6 max-md:w-full ${
-            isInputExpanded ? "max-md:block" : "max-md:hidden"
-          } placeholder:text-[--c-gray-light] h-11 text-sm focus:outline-none focus:ring-yellow-500 px-2 bg-neutral-700`}
-          value={query}
-          onChange={(e) => {
-            handleQuery(e.target.value);
-            setIsResultsClosed(false);
-            setHideCloseIcon(false);
-            if (e.target.value === "") setHideCloseIcon(true);
-          }}
-          ref={ref}
+
+        <SearchInput
+          query={query}
+          isInputClosed={isInputClosed}
+          handleQuery={handleQuery}
+          setIsResultsClosed={setIsResultsClosed}
+          setHideCloseIcon={setHideCloseIcon}
         />
-        <Link
-          to="#"
-          className={`max-md:w-auto ${hideCloseIcon ? "invisible" : "visible"}`}
+
+        <TfiClose
+          className={`text-xl cursor-pointer max-md:text-lg ${
+            hideCloseIcon ? "max-md:w-0 invisible" : "max-md:w-auto visible"
+          } `}
           onClick={() => {
-            setIsLogoVisible(true);
-            setIsInputExpanded(false);
+            toggleSetters(true);
             setIsResultsClosed(true);
-            setHideCloseIcon(true);
             setQuery("");
           }}
-        >
-          <TfiClose
-            className={`text-xl max-md:text-lg ${
-              hideCloseIcon ? "max-md:w-0" : "max-md:w-auto"
-            }`}
-          />
-        </Link>
+        />
       </form>
       {query.length > 0 && (
         <SearchResults
           query={query}
           clearQuery={clearQuery}
-          setHideCloseIcon={setHideCloseIcon}
           isResultsClosed={isResultsClosed}
-          setIsInputExpanded={setIsInputExpanded}
-          setIsLogoVisible={setIsLogoVisible}
+          toggleSetters={toggleSetters}
         />
       )}
     </>

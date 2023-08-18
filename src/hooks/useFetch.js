@@ -36,7 +36,7 @@ const useFetch = (endpoint, filter) => {
     fetchData();
   }, [endpoint, page, filter]);
 
-  return { data, isLoading, setPage };
+  return { data, isLoading, setPage, setData };
 };
 
 export default useFetch;
