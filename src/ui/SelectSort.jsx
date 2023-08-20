@@ -4,12 +4,12 @@ function SelectSort({ handleSortChange }) {
       <select
         name="sort"
         id="sort"
-        className="bg-[var(--bg-light)] py-1.5 px-2 rounded-md cursor-pointer  "
+        className="bg-[var(--bg-light)] py-1.5 px-2 rounded-md cursor-pointer text-sm "
         onChange={handleSortChange}
         value="none"
       >
         <option value="none" hidden disabled>
-          Select sort
+          Sorting
         </option>
         <option value="-released" className="">
           Release date
