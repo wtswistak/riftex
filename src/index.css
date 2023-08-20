@@ -39,7 +39,8 @@
 @layer base {
   :root {
     --bg-primary: #151511;
-    --bg-secondary: #1f1f1f;
+    --bg-secondary: #272727;
+    --bg-light: #272727;
     --dark-gray: #353535;
     --c-green: #3fa603a9;
     --c-gray-light: #ffffff99;

@@ -10,7 +10,7 @@ function SearchInput({
       placeholder="Search game"
       className={`max-md:text-sm max-md:h-6 max-md:w-full ${
         isInputClosed ? "max-md:hidden" : "max-md:block"
-      } placeholder:text-[--c-gray-light] h-11 text-sm focus:outline-none focus:ring-yellow-500 px-2 bg-neutral-700`}
+      } placeholder:text-[--c-gray-light] h-11 text-sm focus:outline-none  px-2 bg-inherit`}
       value={query}
       onChange={(e) => {
         handleQuery(e.target.value);

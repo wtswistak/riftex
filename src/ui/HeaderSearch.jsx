@@ -27,14 +27,14 @@ function HeaderInput({ setIsLogoVisible }) {
       <form
         className={`max-md:px-[10px] ${
           isInputClosed ? "max-md:w-auto" : "max-md:w-full"
-        } max-md:py-2 z-10 text-[var(--c-gray-light)] text-2xl bg-neutral-700 items-center rounded-full px-4 transition-all ease-in duration-200 flex`}
+        } max-md:py-2 z-10 text-[var(--c-gray-light)] text-2xl bg-[var(--bg-light)] items-center rounded-full px-4 transition-all ease-in duration-200 flex`}
       >
         <FiSearch
           onClick={() => {
             toggleSetters(false);
           }}
           color="var(--c-gray-light)"
-          className="max-md:w-5 max-md:cursor-pointer"
+          className="w-5 max-md:cursor-pointer"
         />
 
         <SearchInput
