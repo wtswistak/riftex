@@ -18,9 +18,9 @@ const useFetch = (endpoint, filter) => {
         const response = await axios.get(
           `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
         );
-        // console.log(
-        //   `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
-        // );
+        console.log(
+          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
+        );
         if (!response.data.results || filter.includes("search"))
           setData(response.data);
         else {

@@ -27,7 +27,7 @@ function HeaderInput({ setIsLogoVisible }) {
       <form
         className={`max-md:px-[10px] ${
           isInputClosed ? "max-md:w-auto" : "max-md:w-full"
-        } max-md:py-2 z-10 text-[var(--c-gray-light)] text-2xl bg-[var(--bg-light)] md:w-80 md:hover:w-full  md:focus-within:w-full focus-within:outline-2 focus-within:outline  xl:ml-24 md:ml-10 items-center rounded-full px-4 transition-all ease-in duration-200  flex`}
+        } max-md:py-2 z-10 text-[var(--c-gray-light)] text-2xl bg-[var(--bg-light)] md:w-80 md:hover:w-full  md:focus-within:w-full focus-within:outline-1 focus-within:outline  xl:ml-24 md:ml-10 items-center rounded-full px-4 transition-all ease-in duration-200  flex`}
       >
         <FiSearch
           onClick={() => {
