@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function GenreLink({ data }) {
   return (
     <Link
-      to={`/genres/${data.id}`}
+      to={`/genres/${data.slug}`}
       className={`flex items-center mb-1 py text-lg py-0.5 relative group `}
     >
       <p>{data.name}</p>

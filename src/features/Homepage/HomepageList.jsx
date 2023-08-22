@@ -5,10 +5,10 @@ import Loader from "../../ui/Loader";
 import SelectSort from "../../ui/SelectSort";
 
 function HomepageList({ endpoint, filter }) {
-  const [sortOption, setSortOption] = useState("date");
+  const [sortOption, setSortOption] = useState("none");
   const { data, isLoading, setPage, setData } = useFetch(
     endpoint,
-    `${filter}${sortOption ? `&ordering=${sortOption}` : ""}`
+    `${filter ? filter : ""}${sortOption ? `&ordering=${sortOption}` : ""}`
   );
 
   const handleSortChange = (event) => {
@@ -36,7 +36,7 @@ function HomepageList({ endpoint, filter }) {
 
   return (
     <div className="max-md:px-0  pl-5">
-      <SelectSort handleSortChange={handleSortChange} />
+      <SelectSort handleSortChange={handleSortChange} sortOption={sortOption} />
       <div className="grid items-stretch gap-y-7 mb-32 gap-x-5  2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
         {data.map((game) => (
           <HomepageCardItem key={game.id} game={game} />
