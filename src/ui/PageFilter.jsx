@@ -4,8 +4,10 @@ import { platforms } from "../data/data-platforms";
 
 function PageFilter({ endpoint, filter }) {
   const { id } = useParams();
-  const name =
+  let name =
     platforms.find((platform) => platform.id === Number(id))?.name || id;
+  name = name.charAt(0).toUpperCase() + name.slice(1);
+  if (name.includes("Role")) name = "RPG";
 
   return (
     <div className="block">

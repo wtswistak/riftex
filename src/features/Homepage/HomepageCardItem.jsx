@@ -5,7 +5,11 @@ function HomepageCardItem({ game }) {
   return (
     <div key={game.id} className="bg-[var(--bg-secondary)] rounded-xl pb-4  ">
       <img
-        src={game.background_image}
+        src={
+          game.background_image
+            ? game.background_image
+            : "../public/image-error.jpg"
+        }
         alt={game.name}
         className=" w-full rounded-t-xl h-auto min-h-[150px] object-cover aspect-[16/10] "
       />
