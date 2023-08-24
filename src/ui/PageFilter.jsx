@@ -11,7 +11,7 @@ function PageFilter({ endpoint, filter }) {
 
   return (
     <div className="block">
-      <h1 className="text-5xl font-semibold px-5 pb-7 lg:text-7xl">
+      <h1 className="text-5xl font-semibold px-5 pb-7 lg:text-7xl max-md:pl-0">
         {name} Games
       </h1>
       <HomepageList key={id} endpoint={endpoint} filter={`${filter}=${id}`} />

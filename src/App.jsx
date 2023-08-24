@@ -1,4 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  ScrollRestoration,
+} from "react-router-dom";
 import Applayout from "./ui/Applayout";
 import Homepage from "./pages//Homepage";
 import Platform from "./pages/Platform";
