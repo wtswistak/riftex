@@ -1,26 +1,24 @@
 import { Link } from "react-router-dom";
 
-function PlatformLink({ platform, setActivePlatform, activePlatform }) {
+function LinkSidebar({ to, data, setActive, active }) {
   const handleClick = () => {
-    setActivePlatform(platform.id);
+    setActive(data.id);
   };
 
   return (
     <Link
-      key={platform.id}
-      to={`/platforms/${platform.id}`}
+      to={to}
       className={`flex items-center mb-1 py text-lg py-0.5 relative group `}
       onClick={handleClick}
     >
-      <span className="mr-2 text-xl">{platform.logo}</span>
-      <p>{platform.name}</p>
+      {data.logo ? <span className="mr-2 text-xl">{data.logo}</span> : ""}
+      <p>{data.name}</p>
       <span
         className={`${
-          activePlatform === platform.id ? "w-full" : "w-0"
+          active === data.id ? "w-full" : "w-0"
         } absolute bottom-[-2px] left-[-2px] h-[2px] bg-[var(--c-green)] transition-all group-hover:w-full`}
       ></span>
     </Link>
   );
 }
-
-export default PlatformLink;
+export default LinkSidebar;

@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import GenreLink from "./GenreLink";
 import { useEffect, useState } from "react";
+import LinkSidebar from "./LinkSidebar";
 
 function GenresList() {
   const { data } = useFetch("genres");
@@ -18,11 +18,12 @@ function GenresList() {
       {data
         .filter((genre) => genre.id < 11)
         .map((genre) => (
-          <GenreLink
+          <LinkSidebar
             key={genre.id}
+            to={`/genres/${genre.slug}`}
             data={genre}
-            activeGenre={activeGenre}
-            setActiveGenre={setActiveGenre}
+            active={activeGenre}
+            setActive={setActiveGenre}
           />
         ))}
     </div>

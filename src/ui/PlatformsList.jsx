@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import PlatformLink from "./PlatformLink";
 import { platforms } from "../data/data-platforms";
 import { useLocation } from "react-router-dom";
+import LinkSidebar from "./LinkSidebar";
 
 function PlatformList() {
   const [activePlatform, setActivePlatform] = useState(null);
@@ -13,11 +13,12 @@ function PlatformList() {
   }, [location]);
 
   return platforms.map((platform) => (
-    <PlatformLink
+    <LinkSidebar
       key={platform.id}
-      platform={platform}
-      setActivePlatform={setActivePlatform}
-      activePlatform={activePlatform}
+      to={`/platforms/${platform.id}`}
+      data={platform}
+      setActive={setActivePlatform}
+      active={activePlatform}
     />
   ));
 }

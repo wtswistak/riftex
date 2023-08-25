@@ -22,4 +22,3 @@ function GenreLink({ data, activeGenre, setActiveGenre }) {
 }
 
 export default GenreLink;
-// ${  activeGenre === data.id ? "w-full" : "w-0"}
