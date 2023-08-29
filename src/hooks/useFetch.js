@@ -9,17 +9,17 @@ const useFetch = (endpoint, filter) => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   // console.log(data);
-  filter = filter ? filter : "";
+  filter = filter ? "&" + filter : "";
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
+          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}${filter}`
         );
         console.log(
-          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}&${filter}`
+          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}${filter}`
         );
         if (!response.data.results || filter.includes("search"))
           setData(response.data);
