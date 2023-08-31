@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { login } from "../../services/ApiAuth";
+import { login } from "../../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 
 export function useLogin() {
@@ -11,7 +11,7 @@ export function useLogin() {
     onSuccess: (user) => {
       queryClient.setQueriesData(["user"], user);
       console.log(user);
-      navigate("/");
+      navigate("/", { replace: true });
     },
     onError: (error) => {
       console.log("ERROR", error);

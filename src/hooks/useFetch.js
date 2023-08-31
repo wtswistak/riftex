@@ -6,7 +6,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 const useFetch = (endpoint, filter) => {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   // console.log(data);
   filter = filter ? "&" + filter : "";
@@ -36,7 +36,7 @@ const useFetch = (endpoint, filter) => {
     fetchData();
   }, [endpoint, page, filter]);
 
-  return { data, isLoading, setPage, setData };
+  return { data, isLoading, setIsLoading, setPage, setData };
 };
 
 export default useFetch;

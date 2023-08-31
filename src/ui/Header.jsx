@@ -9,6 +9,7 @@ import { FaRegUser } from "react-icons/fa";
 function Header() {
   const [isLogoVisible, setIsLogoVisible] = useState(true);
   const { user, isLoading, isAuthenticated } = useUser();
+  const { logout } = useUser();
 
   return (
     <div className="flex max-lg:px-4 justify-between items-center px-10 py-3  z-10 ">
