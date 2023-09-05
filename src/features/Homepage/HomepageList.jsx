@@ -20,8 +20,8 @@ function HomepageList({ endpoint, filter }) {
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight - 100
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
     ) {
       setPage((prevPage) => prevPage + 1);
     }

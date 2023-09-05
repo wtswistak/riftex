@@ -18,8 +18,7 @@ function Header() {
 
       <div className="flex items-center w-full justify-end">
         <HeaderSearch setIsLogoVisible={setIsLogoVisible} />
-
-        {isAuthenticated ? (
+        {user ? (
           <Link className="ml-5" to={`/account/${user.id}`}>
             <FaRegUser className="text-lg  cursor-pointer" />
           </Link>
@@ -28,7 +27,7 @@ function Header() {
             <FaRegUser className="text-lg  cursor-pointer" />
           </Link>
         )}
-        {isAuthenticated ? (
+        {user ? (
           <FiLogOut className="text-xl  cursor-pointer ml-2" onClick={logout} />
         ) : (
           ""
