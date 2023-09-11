@@ -9,7 +9,7 @@ export function useLogin() {
   const { mutate, isLoading } = useMutation({
     mutationFn: ({ email, password }) => login({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueriesData(["user"], user);
+      queryClient.setQueryData(["user"], user.user);
       console.log(user);
       navigate("/", { replace: true });
     },
