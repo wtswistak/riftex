@@ -9,7 +9,7 @@ import { FaRegUser } from "react-icons/fa";
 
 function Header() {
   const [isLogoVisible, setIsLogoVisible] = useState(true);
-  const { user, isLoading, isAuthenticated } = useUser();
+  const { user, isAuthenticated } = useUser();
   const { logout } = useLogout();
 
   return (

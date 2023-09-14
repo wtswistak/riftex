@@ -9,7 +9,7 @@ function Account() {
 
   return (
     <div>
-      <p>{profile.username}</p>
+      <p className="text-3xl">{profile.username}</p>
     </div>
   );
 }
