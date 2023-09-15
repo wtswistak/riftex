@@ -6,10 +6,6 @@ export function useProfile(userId) {
     queryKey: ["profile", userId],
     queryFn: () => getProfile(userId),
   });
-  console.log(profile);
-  if (!isLoading && profile) {
-    return { isLoading, profile: profile[0] };
-  }
 
-  return { isLoading, profile: null };
+  return { isLoading, profile: profile };
 }
