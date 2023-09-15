@@ -5,7 +5,7 @@ import { FiLogOut } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useUser } from "../features/auth/useUser";
 import { useLogout } from "../features/Auth/useLogout";
-import { FaRegUser } from "react-icons/fa";
+import HeaderLink from "./HeaderLink";
 
 function Header() {
   const [isLogoVisible, setIsLogoVisible] = useState(true);
@@ -19,16 +19,17 @@ function Header() {
       <div className="flex items-center w-full justify-end">
         <HeaderSearch setIsLogoVisible={setIsLogoVisible} />
         {isAuthenticated ? (
-          <Link className="ml-5" to={`/account/${user.id}`}>
-            <FaRegUser className="text-lg  cursor-pointer" />
-          </Link>
+          <HeaderLink path={`/account/${user.id}`} />
         ) : (
-          <Link className="ml-5" to={"/login"}>
-            <FaRegUser className="text-lg  cursor-pointer" />
-          </Link>
+          <HeaderLink path={`/login`} />
         )}
         {isAuthenticated ? (
-          <FiLogOut className="text-xl  cursor-pointer ml-2" onClick={logout} />
+          <Link
+            className="ml-1 p-1 hover:text-[var(--c-green)] duration-200"
+            onClick={logout}
+          >
+            <FiLogOut className="text-[23px]" />
+          </Link>
         ) : (
           ""
         )}
