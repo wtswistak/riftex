@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 
-function handleClick() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
 function UpButton() {
   const [isVisible, setIsVisible] = useState(false);
+
+  function handleClick() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     const handleScroll = () => {

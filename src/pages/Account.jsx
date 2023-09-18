@@ -3,15 +3,14 @@ import { useProfile } from "../features/Auth/useProfile";
 import Loader from "../ui/Loader";
 
 function Account() {
-  const { user, isLoading, isAuthenticated } = useUser();
+  const { user, isLoading } = useUser();
   const { isLoading: profileLoading, profile } = useProfile(user?.id);
 
   if (isLoading || profileLoading) return <Loader />;
-  console.log(profile.id);
 
   return (
     <div>
-      <p className="text-3xl">{profile.username}</p>
+      <p className="text-5xl font-semibold">{profile.username} profile</p>
     </div>
   );
 }
