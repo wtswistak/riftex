@@ -13,17 +13,20 @@ function Header() {
   const { logout } = useLogout();
 
   return (
-    <div className="flex max-lg:px-4 justify-between items-center px-10 py-3  z-10 ">
+    <div className="flex max-lg:px-4 justify-between items-center px-10 py-3 z-10 ">
       <Logo isLogoVisible={isLogoVisible} />
 
       <div className="flex items-center w-full justify-end">
         <HeaderSearch setIsLogoVisible={setIsLogoVisible} />
         {isAuthenticated ? (
-          <HeaderLink path={`/account/${user.id}`} />
+          <HeaderLink
+            path={`/account/${user.id}`}
+            isLogoVisible={isLogoVisible}
+          />
         ) : (
-          <HeaderLink path={`/login`} />
+          <HeaderLink path={`/login`} isLogoVisible={isLogoVisible} />
         )}
-        {isAuthenticated ? (
+        {isAuthenticated && isLogoVisible ? (
           <Link
             className="ml-1 p-1 hover:text-[var(--c-green)] duration-200"
             onClick={logout}
