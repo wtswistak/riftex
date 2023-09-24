@@ -3,8 +3,8 @@ import { useLogin } from "./useLogin.js";
 import Loader from "../../ui/Loader";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("user@gmail.com");
+  const [password, setPassword] = useState("user");
   const { mutate, isLoading } = useLogin();
 
   function handleSubmit(e) {

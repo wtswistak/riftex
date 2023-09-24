@@ -4,7 +4,7 @@ import { addFavGame } from "../../services/apiFavGames";
 export function useAddGame() {
   const queryClient = useQueryClient();
 
-  const addGameMutation = useMutation(addFavGame, {
+  const addGameDB = useMutation(addFavGame, {
     onSuccess: () => {
       queryClient.invalidateQueries("favGames");
     },
@@ -12,7 +12,7 @@ export function useAddGame() {
 
   const handleAddGame = async (gameId, userId) => {
     try {
-      await addGameMutation.mutateAsync({ game_id: gameId, user_id: userId });
+      await addGameDB.mutateAsync({ gameId, userId });
     } catch (error) {
       console.error("Error adding game to favorites:", error);
     }
@@ -20,6 +20,6 @@ export function useAddGame() {
 
   return {
     handleAddGame,
-    isAdding: addGameMutation.isLoading,
+    isAdding: addGameDB.isLoading,
   };
 }

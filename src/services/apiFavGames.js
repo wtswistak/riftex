@@ -1,4 +1,3 @@
-import useFetch from "../hooks/useFetch";
 import supabase from "./supabase";
 
 export async function getFavGames(userId) {
@@ -9,7 +8,7 @@ export async function getFavGames(userId) {
     .eq("user_id", userId);
 
   if (error) {
-    console.log("favGames error");
+    console.log("get favGames error");
     throw error;
   }
   return data;
@@ -26,7 +25,19 @@ export async function addFavGame({ gameId, userId }) {
     ])
     .select();
   if (error) {
-    console.log("favGames error");
+    console.log("add favGames error");
+    throw error;
+  }
+}
+
+export async function deleteFavGame({ gameId, userId }) {
+  const { error } = await supabase
+    .from("favGame")
+    .delete()
+    .eq("game_id", gameId)
+    .eq("user_id", userId);
+  if (error) {
+    console.log("delete favGames error");
     throw error;
   }
 }
