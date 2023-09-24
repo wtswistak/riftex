@@ -10,8 +10,8 @@ export async function getFavGames() {
   return data;
 }
 
-export async function addFavGame(game_id, user_id) {
-  const { data, error } = await supabase
+export async function addFavGame({ game_id, user_id }) {
+  const { error } = await supabase
     .from("favGame")
     .insert([
       {
