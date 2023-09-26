@@ -1,6 +1,6 @@
 Aplikacja umożliwiająca przeglądnie gier z serwisu Rawg. Użytkownik może przeglądać gry, dodawać je do ulubionych, wyszukiwać gry po nazwie, a także sortować po gatunku, platformie. Aplikacja korzysta z API serwisu Rawg. Do zarządzania kontem użytkownika i bazą danych wykorzystano serwis Supabase.
 
-Technologie: React, JS, TailwindCSS, Supabse, React Quer.
+Technologie: React, JS, TailwindCSS, Supabse, React Query, Postgres .
 
 live: https://riftex.netlify.app/
 
