@@ -1,3 +1,7 @@
+Aplikacja umożliwiająca przeglądnie gier z serwisu Rawg. Użytkownik może przeglądać gry, dodawać je do ulubionych, wyszukiwać gry po nazwie, a także sortować po gatunku, platformie. Aplikacja korzysta z API serwisu Rawg. Do zarządzania kontem użytkownika i bazą danych wykorzystano serwis Supabase.
+
+Technologie: React, JS, TailwindCSS, Supabse, React Quer.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
