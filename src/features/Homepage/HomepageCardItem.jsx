@@ -10,9 +10,7 @@ function HomepageCardItem({ game }) {
     >
       <img
         src={
-          game.background_image
-            ? game.background_image
-            : "../public/image-error.jpg"
+          game.background_image ? game.background_image : "../image-error.jpg"
         }
         alt={game.name}
         className=" w-full rounded-t-xl h-auto min-h-[150px] object-cover aspect-[16/10] "

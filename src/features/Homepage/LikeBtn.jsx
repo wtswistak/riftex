@@ -28,8 +28,9 @@ function LikeBtn({ game }) {
         <button
           className={`${
             isLiked ? "bg-[#d8d8d8] text-[#000]" : " bg-[#202020f8]"
-          } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl `}
+          } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl  `}
           onClick={handleLike}
+          title={isLiked ? "Usuń z polubionych" : "Dodaj do ulubionych"}
         >
           {isDeleting ? <CircleLoader /> : <VscHeart />}
         </button>

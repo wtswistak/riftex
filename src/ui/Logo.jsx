@@ -5,7 +5,7 @@ function Logo({ isLogoVisible }) {
   return (
     <Link to="/" className="flex items-center z-10 max-md:h-[40px] ">
       <img
-        src="../public/logo.png"
+        src="../logo.png"
         alt="logo-controller"
         className="w-[28px] h-[19px] mr-1.5"
       />

@@ -30,6 +30,7 @@ function Header() {
           <Link
             className="ml-1 p-1 hover:text-[var(--c-green)] duration-200"
             onClick={logout}
+            title="Wyloguj"
           >
             <FiLogOut className="text-[23px]" />
           </Link>
