@@ -1,5 +1,9 @@
 function NotPageFound() {
-  return <div>404</div>;
+  return (
+    <p className="text-2xl md:mx-5">
+      We couldnt find the page youre looking for.{" "}
+    </p>
+  );
 }
 
 export default NotPageFound;
