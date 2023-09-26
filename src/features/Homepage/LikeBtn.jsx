@@ -2,7 +2,7 @@ import { VscHeart } from "react-icons/vsc";
 import { useUser } from "../auth/useUser";
 import { useAddGame } from "./useAddGame";
 import { useFavGames } from "../Account/useFavGames";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDeleteGame } from "./useDeleteGame";
 import CircleLoader from "../../ui/CircleLoader";
 
@@ -12,6 +12,10 @@ function LikeBtn({ game }) {
   const [isLiked, setIsLiked] = useState(() =>
     favGames?.some((favGame) => favGame.game_id === game.id)
   );
+
+  useEffect(() => {
+    setIsLiked(() => favGames?.some((favGame) => favGame.game_id === game.id));
+  }, [favGames, game.id]);
 
   const { handleAddGame } = useAddGame();
   const { handleDeleteGame, isDeleting } = useDeleteGame();
@@ -27,7 +31,9 @@ function LikeBtn({ game }) {
       {user ? (
         <button
           className={`${
-            isLiked ? "bg-[#d8d8d8] text-[#000]" : " bg-[#202020f8]"
+            isLiked
+              ? "bg-[#cacaca] text-[#000] hover:bg-[#ececec] duration-200"
+              : " bg-[#1f1f1f] hover:bg-[#111111] duration-200"
           } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl  `}
           onClick={handleLike}
           title={isLiked ? "Usuń z polubionych" : "Dodaj do ulubionych"}
