@@ -2,6 +2,8 @@ Aplikacja umożliwiająca przeglądnie gier z serwisu Rawg. Użytkownik może pr
 
 Technologie: React, JS, TailwindCSS, Supabse, React Quer.
 
+live: https://riftex.netlify.app/
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
