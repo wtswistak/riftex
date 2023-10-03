@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Account from "./pages/Account";
 import Login from "./features/auth/Login";
+import SignUp from "./pages/SignUp";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ function App() {
             <Route path="games/:id" element={<Game />} />
             <Route path="genres/:id" element={<Genre />} />
             <Route path="account/:id" element={<Account />} />
+            <Route path="sign-up" element={<SignUp />} />
             <Route path="*" element={<NotPageFound />} />
           </Route>
           <Route path="/login" element={<Login />} />

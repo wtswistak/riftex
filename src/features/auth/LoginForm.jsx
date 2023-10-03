@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "./useLogin.js";
 import Loader from "../../ui/Loader";
+import { Link } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = useState("user@gmail.com");
@@ -45,6 +46,15 @@ function LoginForm() {
       >
         Log in
       </button>
+      <p className="text-sm mt-2 text-[#b4b4b4]">
+        You dont have account?{" "}
+        <Link
+          className="text-[#fff] hover:text-[var(--c-green)] duration-200"
+          to="/sign-up"
+        >
+          Sign Up
+        </Link>
+      </p>
       {isLoading && <Loader />}
     </form>
   );
