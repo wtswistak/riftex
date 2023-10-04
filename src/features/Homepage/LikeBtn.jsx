@@ -36,7 +36,7 @@ function LikeBtn({ game }) {
               : " bg-[#1f1f1f] hover:bg-[#111111] duration-200"
           } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl  `}
           onClick={handleLike}
-          title={isLiked ? "Usuń z polubionych" : "Dodaj do ulubionych"}
+          title={isLiked ? "Remove from liked games" : "Add to liked games"}
         >
           {isDeleting ? <CircleLoader /> : <VscHeart />}
         </button>

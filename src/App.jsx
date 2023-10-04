@@ -31,9 +31,9 @@ function App() {
             <Route path="games/:id" element={<Game />} />
             <Route path="genres/:id" element={<Genre />} />
             <Route path="account/:id" element={<Account />} />
-            <Route path="sign-up" element={<SignUp />} />
             <Route path="*" element={<NotPageFound />} />
           </Route>
+          <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
