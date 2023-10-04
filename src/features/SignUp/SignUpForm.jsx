@@ -6,6 +6,7 @@ import { useSignUp } from "./useSignUp";
 function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const { mutate, isLoading } = useSignUp();
 
   function handleSubmit(e) {
@@ -20,6 +21,12 @@ function SignUpForm() {
         setValue={setEmail}
         isLoading={isLoading}
         type="email"
+      />
+      <InputText
+        value={username}
+        setValue={setUsername}
+        isLoading={isLoading}
+        type="text"
       />
       <InputText
         value={password}
