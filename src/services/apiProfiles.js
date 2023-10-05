@@ -15,7 +15,6 @@ export async function getProfile(id) {
 }
 
 export async function addProfile({ id, username }) {
-  console.log(id);
   const { data, error } = await supabase
     .from("profiles")
     .insert([{ id: id, username: username }])

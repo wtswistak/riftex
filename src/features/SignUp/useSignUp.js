@@ -9,7 +9,6 @@ export function useSignUp() {
   const { mutate, isLoading } = useMutation({
     mutationFn: async ({ email, password, username }) => {
       const user = await signUp({ email, password });
-      console.log(user.user);
       const userId = user?.user.id;
       await addProfile({
         id: userId,
