@@ -11,7 +11,7 @@ function SignUpForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    mutate({ email, password });
+    mutate({ email, password, username });
   }
 
   return (
@@ -26,7 +26,7 @@ function SignUpForm() {
         value={username}
         setValue={setUsername}
         isLoading={isLoading}
-        type="text"
+        type="username"
       />
       <InputText
         value={password}
