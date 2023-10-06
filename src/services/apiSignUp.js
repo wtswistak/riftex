@@ -5,9 +5,8 @@ export async function signUp({ email, password }) {
     email: email,
     password: password,
   });
-  const emailExists = data.session === null;
+  const emailExists = data.user.identities.length < 1;
 
-  console.log(data);
   if (error) {
     console.log(error);
     throw error;
