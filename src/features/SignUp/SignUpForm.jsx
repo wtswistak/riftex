@@ -7,7 +7,7 @@ function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const { mutate, isLoading } = useSignUp();
+  const { mutate, isLoading, emailExists } = useSignUp();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -43,6 +43,9 @@ function SignUpForm() {
       </button>
 
       {isLoading && <Loader />}
+      {emailExists && (
+        <p className="text-red-500 text-sm mt-2">Email already exists</p>
+      )}
     </form>
   );
 }
