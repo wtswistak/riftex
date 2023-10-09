@@ -11,9 +11,9 @@ function Applayout() {
   return (
     <>
       <Header />
-      <div className="flex pt-6 pr-10 max-md:px-4 max-lg:pr-4 mb-16">
+      <div className="flex pt-6 pr-10 max-md:px-4  max-lg:pr-4 mb-16">
         <Sidebar />
-        <div className={`${isSidebarHidden ? "max-md:hidden" : ""}`}>
+        <div className={`${isSidebarHidden ? "max-sm:hidden" : ""}`}>
           <Outlet />
         </div>
         <UpButton />

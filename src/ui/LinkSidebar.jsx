@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
+import { SidebarContext } from "../contexts/SidebarContext";
+import { useContext } from "react";
 
 function LinkSidebar({ to, data, setActive, active }) {
+  const { isSidebarHidden, toggleSidebar } = useContext(SidebarContext);
   const handleClick = () => {
     setActive(data.id);
+    if (isSidebarHidden) toggleSidebar();
   };
 
   return (
     <Link
       to={to}
-      className={`flex items-center mb-1 py text-lg py-0.5 relative group max-md:w-[160px] `}
+      className={`flex items-center mb-1 py text-lg py-0.5 relative group max-sm:w-[145px] `}
       onClick={handleClick}
     >
       {data.logo ? <span className="mr-2 text-xl">{data.logo}</span> : ""}
