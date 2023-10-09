@@ -1,4 +1,4 @@
-Aplikacja umożliwiająca przeglądnie gier z serwisu Rawg. Użytkownik może przeglądać gry, dodawać je do ulubionych, wyszukiwać gry po nazwie, a także sortować po gatunku, platformie. Aplikacja korzysta z API serwisu Rawg. Do zarządzania kontem użytkownika i bazą danych wykorzystano serwis Supabase.
+Aplikacja umożliwiająca przeglądnie gier z serwisu Rawg. Użytkownik może przeglądać gry, dodawać je do ulubionych, wyszukiwać gry po nazwie, a także sortować po gatunku, platformie. Aplikacja korzysta z API serwisu Rawg. Do zarządzania autoryzacją użytkownika i bazą danych wykorzystano serwis Supabase.
 
 Technologie: React, JS, TailwindCSS, Supabse, React Query, Postgres .
 
