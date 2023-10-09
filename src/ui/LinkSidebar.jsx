@@ -8,7 +8,7 @@ function LinkSidebar({ to, data, setActive, active }) {
   return (
     <Link
       to={to}
-      className={`flex items-center mb-1 py text-lg py-0.5 relative group `}
+      className={`flex items-center mb-1 py text-lg py-0.5 relative group max-md:w-[160px] `}
       onClick={handleClick}
     >
       {data.logo ? <span className="mr-2 text-xl">{data.logo}</span> : ""}
