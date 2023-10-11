@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useContext } from "react";
 import { SidebarContext } from "../contexts/SidebarContext";
+
 function Logo({ isLogoVisible }) {
-  const { toggleSidebar } = useContext(SidebarContext);
+  const { isSidebarHidden, toggleSidebar } = useContext(SidebarContext);
 
   if (!isLogoVisible) return null;
   return (
@@ -14,7 +15,7 @@ function Logo({ isLogoVisible }) {
         }}
         className="mr-2 hover:text-[#bebebe] duration-200 sm:hidden"
       >
-        <FiMenu size={24} />
+        {isSidebarHidden ? <FiX size={26} /> : <FiMenu size={24} />}
       </button>
       <Link to="/" className="flex items-center z-10 max-md:h-[40px]  ">
         <img

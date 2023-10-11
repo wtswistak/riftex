@@ -39,7 +39,7 @@ function Account() {
         {profile.username} games
       </p>
       {favGames.length ? (
-        <div className="grid gap-y-7 mb-8 gap-x-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2">
+        <div className="grid gap-y-7 mb-8 gap-x-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
           {gameDetails.map((gameData) => (
             <HomepageCardItem key={gameData.id} game={gameData} />
           ))}
