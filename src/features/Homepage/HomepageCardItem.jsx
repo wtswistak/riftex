@@ -1,8 +1,11 @@
 import HomeapagePlatforms from "./HomeapagePlatforms";
 import HomepageLink from "./HomepageLink";
 import LikeBtn from "./LikeBtn";
+import { useDeleteGame } from "./useDeleteGame";
 
 function HomepageCardItem({ game }) {
+  // const { handleDeleteGame, isDeleting } = useDeleteGame();
+
   return (
     <div
       key={game.id}

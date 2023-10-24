@@ -8,17 +8,18 @@ import CircleLoader from "../../ui/CircleLoader";
 
 function LikeBtn({ game }) {
   const { user } = useUser();
-  const { favGames } = useFavGames(user?.id);
+  const { favGames: favGamesDb } = useFavGames(user?.id);
   const [isLiked, setIsLiked] = useState(() =>
-    favGames?.some((favGame) => favGame.game_id === game.id)
+    favGamesDb?.some((favGame) => favGame.game_id === game.id)
   );
-
-  useEffect(() => {
-    setIsLiked(() => favGames?.some((favGame) => favGame.game_id === game.id));
-  }, [favGames, game.id]);
-
   const { handleAddGame } = useAddGame();
   const { handleDeleteGame, isDeleting } = useDeleteGame();
+
+  useEffect(() => {
+    setIsLiked(() =>
+      favGamesDb?.some((favGame) => favGame.game_id === game.id)
+    );
+  }, [favGamesDb, game.id]);
 
   function handleLike() {
     if (!isLiked) handleAddGame(game.id, user.id);
@@ -32,7 +33,7 @@ function LikeBtn({ game }) {
         <button
           className={`${
             isLiked
-              ? "bg-[#cacaca] text-[#000] hover:bg-[#ececec] duration-200"
+              ? "bg-[#cacaca] text-[#000] hover:bg-[#f6f6f6cc] duration-200"
               : " bg-[#1f1f1f] hover:bg-[#111111] duration-200"
           } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl  `}
           onClick={handleLike}
