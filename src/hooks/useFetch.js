@@ -13,18 +13,20 @@ const useFetch = (endpoint, filter) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      console.log("page" + page);
       try {
         const response = await axios.get(
           `${API_URL}${endpoint}?key=${API_KEY}&page=${page}${filter}`
         );
-        // console.log(
-        //   `${API_URL}${endpoint}?key=${API_KEY}&page=${page}${filter}`
-        // );
+        console.log(
+          `${API_URL}${endpoint}?key=${API_KEY}&page=${page}${filter}`
+        );
         if (!response.data.results || filter.includes("search"))
           setData(response.data);
         else {
           setData([...data, ...response.data.results]);
         }
+        console.log(page);
       } catch {
         throw Error("Failed fetch data");
       } finally {
@@ -35,7 +37,7 @@ const useFetch = (endpoint, filter) => {
     fetchData();
   }, [endpoint, page, filter]);
 
-  return { data, isLoading, setIsLoading, setPage, setData };
+  return { data, isLoading, setIsLoading, setPage, setData, page };
 };
 
 export default useFetch;

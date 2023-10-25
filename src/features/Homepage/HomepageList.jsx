@@ -5,8 +5,9 @@ import Loader from "../../ui/Loader";
 import SelectSort from "../../ui/SelectSort";
 
 function HomepageList({ endpoint, filter }) {
+  const [curPage, setCurPage] = useState(1);
   const [sortOption, setSortOption] = useState("none");
-  const { data, isLoading, setPage, setData } = useFetch(
+  const { data, isLoading, setIsLoading, setPage, setData, page } = useFetch(
     endpoint,
     `${filter ? filter : ""}${sortOption ? `&ordering=${sortOption}` : ""}`
   );
@@ -20,9 +21,11 @@ function HomepageList({ endpoint, filter }) {
 
   const handleScroll = () => {
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
+      !isLoading &&
+      (window.innerHeight + window.scrollY) / document.body.scrollHeight >= 0.9
     ) {
+      setIsLoading(true);
+      console.log("okokok");
       setPage((prevPage) => prevPage + 1);
     }
   };
@@ -32,7 +35,7 @@ function HomepageList({ endpoint, filter }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <div className="max-md:px-0 pl-5">
@@ -41,7 +44,6 @@ function HomepageList({ endpoint, filter }) {
         {data.map((game) => (
           <HomepageCardItem key={game.id} game={game} />
         ))}
-        {isLoading && <Loader />}
       </div>
     </div>
   );
