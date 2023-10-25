@@ -13,7 +13,7 @@ function Header() {
   const { logout } = useLogout();
 
   return (
-    <div className="flex max-lg:px-4 justify-between items-center px-10 py-3 z-10 ">
+    <div className="flex z-50 max-lg:px-4 justify-between items-center px-10 py-3 ">
       <HeaderLogo isVisible={isLogoVisible} />
 
       <div className="flex items-center w-full justify-end">
