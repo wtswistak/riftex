@@ -8,7 +8,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`pl-10 pr-6 max-md:pl-0 max-lg:pl-4 max-sm:w-full z-[-2] ${
+      className={`pl-10 pr-6 max-md:pl-0 max-lg:pl-4 max-sm:w-full z-2 ${
         isSidebarHidden ? "" : "max-sm:hidden"
       }`}
     >

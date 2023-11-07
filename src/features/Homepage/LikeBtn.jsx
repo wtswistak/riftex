@@ -33,7 +33,7 @@ function LikeBtn({ game }) {
         <button
           className={`${
             isLiked
-              ? "bg-[#cacaca] text-[#000] hover:bg-[#f6f6f6cc] duration-200"
+              ? "bg-[#cacaca] text-[#000] hover:bg-[#f6f6f6e1] duration-200"
               : " bg-[#1f1f1f] hover:bg-[#111111] duration-200"
           } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl  `}
           onClick={handleLike}
