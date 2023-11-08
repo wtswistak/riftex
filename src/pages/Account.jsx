@@ -10,46 +10,51 @@ function Account() {
   const { user, isLoading } = useUser();
   const { isLoading: profileLoading, profile } = useProfile(user?.id);
   const { favGames, favGamesLoading } = useFavGames(user?.id);
-  const [gameDetails, setGameDetails] = useState([]);
+  const [userGames, setUserGames] = useState([]);
 
   useEffect(() => {
-    const fetchGameDetails = async () => {
-      const gameDetailsPromises = favGames.map((game) =>
-        getGameDetails(game.game_id)
-      );
-
-      try {
-        const gameDetailsData = await Promise.all(gameDetailsPromises);
-        setGameDetails(gameDetailsData);
-      } catch (error) {
-        console.error("Error fetching game details:", error);
-      }
-    };
-
-    if (favGames?.length >= 0) {
-      fetchGameDetails();
+    if (favGames?.length > 0) {
+      fetchUserGames();
     }
   }, [favGames]);
 
-  if (isLoading || profileLoading || favGamesLoading) return <Loader />;
+  const fetchUserGames = async () => {
+    try {
+      const userGamesData = await Promise.all(
+        favGames.map((game) => getGameDetails(game.game_id))
+      );
+      setUserGames(userGamesData);
+    } catch (error) {
+      console.error("Game details error", error);
+    }
+  };
+  if (
+    isLoading ||
+    profileLoading ||
+    favGamesLoading ||
+    (userGames.length === 0 && favGames.length > 0)
+  )
+    return <Loader />;
 
   return (
-    <div className="md:pl-5">
-      <p className="text-5xl font-semibold mb-12 max-md:mb-6 max-sm:text-4xl">
-        {profile.username} games
-      </p>
-      {favGames.length ? (
-        <div className="grid gap-y-7 mb-8 gap-x-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
-          {gameDetails.map((gameData) => (
-            <HomepageCardItem key={gameData.id} game={gameData} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-4xl font-medium mb-12 max-md:mb-6 max-md:text-2xl">
-          You dont have any games yet
+    <>
+      <div className="md:pl-5">
+        <p className="text-5xl font-semibold mb-12 max-md:mb-6 max-sm:text-4xl">
+          {profile.username} games
         </p>
-      )}
-    </div>
+        {favGames.length ? (
+          <div className="grid gap-y-7 mb-8 gap-x-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
+            {userGames.map((gameData) => (
+              <HomepageCardItem key={gameData.id} game={gameData} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-4xl font-medium mb-12 max-md:mb-6 max-md:text-2xl">
+            You dont have any games yet
+          </p>
+        )}
+      </div>
+    </>
   );
 }
 
