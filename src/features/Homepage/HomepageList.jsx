@@ -11,12 +11,14 @@ function HomepageList({ endpoint, filter }) {
     endpoint,
     `${filter ? filter : ""}${sortOption ? `&ordering=${sortOption}` : ""}`
   );
+  const [firstLoad, setFirstLoad] = useState(true);
 
   const handleSortChange = (event) => {
     const newSortOption = event.target.value;
     setSortOption(newSortOption);
     setData([]);
     setPage(1);
+    setFirstLoad(true);
   };
 
   const handleScroll = () => {
@@ -37,15 +39,27 @@ function HomepageList({ endpoint, filter }) {
     };
   }, [isLoading]);
 
+  useEffect(() => {
+    if (data.length > 0) {
+      setFirstLoad(false);
+    }
+  }, [data]);
+
   return (
-    <div className="max-md:px-0 pl-5">
-      <SelectSort handleSortChange={handleSortChange} sortOption={sortOption} />
-      <div className="grid gap-y-7 mb-8 gap-x-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
-        {data.map((game) => (
-          <HomepageCardItem key={game.id} game={game} />
-        ))}
+    <>
+      {isLoading && firstLoad && <Loader />}
+      <div className="max-md:px-0 pl-5">
+        <SelectSort
+          handleSortChange={handleSortChange}
+          sortOption={sortOption}
+        />
+        <div className="grid gap-y-7 mb-8 gap-x-5 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
+          {data.map((game) => (
+            <HomepageCardItem key={game.id} game={game} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
