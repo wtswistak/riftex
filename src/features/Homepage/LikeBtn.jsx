@@ -6,11 +6,14 @@ import { useEffect, useState } from "react";
 import { useDeleteGame } from "./useDeleteGame";
 import CircleLoader from "../../ui/CircleLoader";
 
-function LikeBtn({ game }) {
+function LikeBtn({ game, setIsDisplaying }) {
   const { user } = useUser();
   const { favGames: favGamesDb } = useFavGames(user?.id);
   const [isLiked, setIsLiked] = useState(() =>
     favGamesDb?.some((favGame) => favGame.game_id === game.id)
+  );
+  const [isAccountPage] = useState(
+    window.location.pathname.includes("account")
   );
   const { handleAddGame } = useAddGame();
   const { handleDeleteGame, isDeleting } = useDeleteGame();
@@ -23,9 +26,17 @@ function LikeBtn({ game }) {
 
   function handleLike() {
     if (!isLiked) handleAddGame(game.id, user.id);
-    if (isLiked) handleDeleteGame(game.id, user.id);
+    if (isLiked) {
+      handleDeleteGame(game.id, user.id);
+    }
     setIsLiked(!isLiked);
   }
+  useEffect(() => {
+    console.log(isDeleting);
+    if (!isLiked && !isDeleting && isAccountPage) {
+      setIsDisplaying(false);
+    }
+  }, [isLiked, isDeleting]);
 
   return (
     <>

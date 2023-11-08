@@ -1,11 +1,11 @@
+import { useState } from "react";
 import HomeapagePlatforms from "./HomeapagePlatforms";
 import HomepageLink from "./HomepageLink";
 import LikeBtn from "./LikeBtn";
-import { useDeleteGame } from "./useDeleteGame";
 
 function HomepageCardItem({ game }) {
-  // const { handleDeleteGame, isDeleting } = useDeleteGame();
-
+  const [isDisplaying, setIsDisplaying] = useState(true);
+  if (!isDisplaying) return null;
   return (
     <div
       key={game.id}
@@ -30,7 +30,7 @@ function HomepageCardItem({ game }) {
           </div>
           <HomepageLink game={game} className="" />
         </div>
-        <LikeBtn game={game} />
+        <LikeBtn game={game} setIsDisplaying={setIsDisplaying} />
       </div>
     </div>
   );
