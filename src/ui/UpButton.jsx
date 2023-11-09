@@ -24,7 +24,7 @@ function UpButton() {
     <FiArrowUp
       onClick={handleClick}
       size={32}
-      className="fixed bottom-3 text-[#518b30] font-bold bg-[#1f1f1f] p-1 right-3 border-[#518b30] rounded-md cursor-pointer hover:bg-[#518b30] border-[2px] hover:text-[var(--bg-light)] )] hover:border-[var(--bg-light)] )"
+      className="fixed bottom-3 z-10 text-[#518b30] font-bold bg-[#1f1f1f] p-1 right-3 border-[#518b30] rounded-md cursor-pointer hover:bg-[#518b30] border-[2px] hover:text-[var(--bg-light)] )] hover:border-[var(--bg-light)] )"
     ></FiArrowUp>
   );
 }

@@ -15,7 +15,7 @@ function HeaderLogo({ isVisible }) {
         }}
         className="mr-2 hover:text-[#bebebe] duration-200 sm:hidden"
       >
-        {isSidebarHidden ? <FiX size={26} /> : <FiMenu size={24} />}
+        {isSidebarHidden ? <FiX size={26} /> : <FiMenu size={26} />}
       </button>
       <Logo isVisible={isVisible} mobileVisibleLogo={"hidden"} />
     </>
