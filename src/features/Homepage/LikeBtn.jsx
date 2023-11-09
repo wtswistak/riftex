@@ -49,6 +49,7 @@ function LikeBtn({ game, setIsDisplaying }) {
           } w-full flex justify-center px-6 py-2 text-2xl mt-4 rounded-xl  `}
           onClick={handleLike}
           title={isLiked ? "Remove from liked games" : "Add to liked games"}
+          disabled={isDeleting}
         >
           {isDeleting ? <CircleLoader /> : <VscHeart />}
         </button>
