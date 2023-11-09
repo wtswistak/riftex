@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HomepageCardItem from "../Homepage/HomepageCardItem";
 import useFetch from "../../hooks/useFetch";
 import Loader from "../../ui/Loader";
 import SelectSort from "../../ui/SelectSort";
+import { SidebarContext } from "../../contexts/SidebarContext";
 
 function HomepageList({ endpoint, filter }) {
   const [curPage, setCurPage] = useState(1);
@@ -12,6 +13,7 @@ function HomepageList({ endpoint, filter }) {
     `${filter ? filter : ""}${sortOption ? `&ordering=${sortOption}` : ""}`
   );
   const [firstLoad, setFirstLoad] = useState(true);
+  const { isSidebarHidden } = useContext(SidebarContext);
 
   const handleSortChange = (event) => {
     const newSortOption = event.target.value;
@@ -33,17 +35,15 @@ function HomepageList({ endpoint, filter }) {
   };
 
   useEffect(() => {
+    if (isSidebarHidden) return;
+    if (data.length > 0) {
+      setFirstLoad(false);
+    }
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (data.length > 0) {
-      setFirstLoad(false);
-    }
-  }, [data]);
+  }, [isLoading, data, isSidebarHidden]);
 
   return (
     <>
