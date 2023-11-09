@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import SearchResults from "../features/Game/SearchResults";
+import SearchResults from "./SearchResults";
 import { TfiClose } from "react-icons/tfi";
 import SearchInput from "./SearchInput";
 
