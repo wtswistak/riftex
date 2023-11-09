@@ -1,18 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SearchResults from "./SearchResults";
 import { TfiClose } from "react-icons/tfi";
 import SearchInput from "./SearchInput";
+import { SidebarContext } from "../contexts/SidebarContext";
 
 function HeaderInput({ setIsLogoVisible }) {
   const [query, setQuery] = useState("");
   const [hideCloseIcon, setHideCloseIcon] = useState(true);
   const [isResultsClosed, setIsResultsClosed] = useState(false);
   const [isInputClosed, setIsInputClosed] = useState(true);
+  const { setIsSidebarHidden } = useContext(SidebarContext);
 
-  function handleQuery(newQuery) {
-    setQuery(newQuery);
-  }
   function clearQuery() {
     setQuery("");
   }
@@ -43,7 +42,7 @@ function HeaderInput({ setIsLogoVisible }) {
         <SearchInput
           query={query}
           isInputClosed={isInputClosed}
-          handleQuery={handleQuery}
+          setQuery={setQuery}
           setIsResultsClosed={setIsResultsClosed}
           setHideCloseIcon={setHideCloseIcon}
         />
@@ -56,6 +55,7 @@ function HeaderInput({ setIsLogoVisible }) {
             toggleSetters(true);
             setIsResultsClosed(true);
             setQuery("");
+            setIsSidebarHidden(false);
           }}
         />
       </form>
