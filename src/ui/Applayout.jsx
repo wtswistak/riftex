@@ -2,12 +2,14 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import UpButton from "./UpButton";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SidebarContext } from "../contexts/SidebarContext";
 
 function Applayout() {
   const { isSidebarHidden } = useContext(SidebarContext);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [window.location.pathname]);
   return (
     <>
       <Header />

@@ -7,6 +7,7 @@ function LinkSidebar({ to, data, setActive, active }) {
   const handleClick = () => {
     setActive(data.id);
     if (isSidebarHidden) toggleSidebar();
+    window.scrollTo(0, 0);
   };
 
   return (

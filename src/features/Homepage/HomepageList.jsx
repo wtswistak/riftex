@@ -7,9 +7,8 @@ import { SidebarContext } from "../../contexts/SidebarContext";
 import throttle from "lodash/throttle";
 
 function HomepageList({ endpoint, filter }) {
-  const [curPage, setCurPage] = useState(1);
   const [sortOption, setSortOption] = useState("none");
-  const { data, isLoading, setIsLoading, setPage, setData, page } = useFetch(
+  const { data, isLoading, setIsLoading, setPage, setData } = useFetch(
     endpoint,
     `${filter ? filter : ""}${sortOption ? `&ordering=${sortOption}` : ""}`
   );
@@ -22,13 +21,15 @@ function HomepageList({ endpoint, filter }) {
     setData([]);
     setPage(1);
     setFirstLoad(true);
+    window.scrollTo(0, 0);
   };
 
   const handleScroll = throttle(() => {
-    if (!isLoading && window.scrollY >= document.body.scrollHeight - 1800) {
-      setIsLoading(true);
-      console.log("okokok");
-      setPage((prevPage) => prevPage + 1);
+    if (!isLoading && window.scrollY >= document.body.scrollHeight - 1500) {
+      if (window.scrollY > 1200) {
+        setIsLoading(true);
+        setPage((prevPage) => prevPage + 1);
+      }
     }
   }, 500);
 
