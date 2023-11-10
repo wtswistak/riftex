@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import Loader from "../../ui/Loader";
 import SelectSort from "../../ui/SelectSort";
 import { SidebarContext } from "../../contexts/SidebarContext";
+import throttle from "lodash/throttle";
 
 function HomepageList({ endpoint, filter }) {
   const [curPage, setCurPage] = useState(1);
@@ -23,16 +24,13 @@ function HomepageList({ endpoint, filter }) {
     setFirstLoad(true);
   };
 
-  const handleScroll = () => {
-    if (
-      !isLoading &&
-      (window.innerHeight + window.scrollY) / document.body.scrollHeight >= 0.9
-    ) {
+  const handleScroll = throttle(() => {
+    if (!isLoading && window.scrollY >= document.body.scrollHeight - 1800) {
       setIsLoading(true);
       console.log("okokok");
       setPage((prevPage) => prevPage + 1);
     }
-  };
+  }, 500);
 
   useEffect(() => {
     if (isSidebarHidden) return;
