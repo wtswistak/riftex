@@ -17,7 +17,7 @@ function SearchResults({ query, clearQuery, isResultsClosed, toggleSetters }) {
     setIsSidebarHidden(false);
   };
   return (
-    <div className=" absolute z-[2] top-[68px] grid h-full 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 gap-5 px-10 max-lg:px-4   bottom-0 left-0 right-0 bg-[var(--bg-primary)] pb-24 pt-10 ">
+    <div className=" absolute z-[2] top-[68px] grid h-max w-full 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 gap-5 px-10 max-lg:px-4 left-0 bg-[var(--bg-primary)] pb-24 pt-10 ">
       {isLoading && <Loader />}
       {data.results?.map((game) => {
         return (
