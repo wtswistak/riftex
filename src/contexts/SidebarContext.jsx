@@ -7,8 +7,11 @@ const SidebarProvider = ({ children }) => {
   const toggleSidebar = () => {
     setIsSidebarHidden(!isSidebarHidden);
   };
+
   return (
-    <SidebarContext.Provider value={{ isSidebarHidden, toggleSidebar }}>
+    <SidebarContext.Provider
+      value={{ isSidebarHidden, toggleSidebar, setIsSidebarHidden }}
+    >
       {children}
     </SidebarContext.Provider>
   );
