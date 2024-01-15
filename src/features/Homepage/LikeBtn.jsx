@@ -32,7 +32,6 @@ function LikeBtn({ game, setIsDisplaying }) {
     setIsLiked(!isLiked);
   }
   useEffect(() => {
-    console.log(isDeleting);
     if (!isLiked && !isDeleting && isAccountPage) {
       setIsDisplaying(false);
     }
