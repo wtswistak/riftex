@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLogin } from "./useLogin.js";
 import Loader from "../../ui/Loader";
 import { Link } from "react-router-dom";
-import InputText from "./InputText.jsx";
+import AuthInput from "./AuthInput.jsx";
 
 function LoginForm() {
   const [email, setEmail] = useState("user@gmail.com");
@@ -17,13 +17,13 @@ function LoginForm() {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit}>
-      <InputText
+      <AuthInput
         value={email}
         setValue={setEmail}
         isLoading={isLoading}
         type="email"
       />
-      <InputText
+      <AuthInput
         value={password}
         setValue={setPassword}
         isLoading={isLoading}
