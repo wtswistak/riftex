@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Loader from "../../ui/Loader";
-import InputText from "../Auth/InputText";
 import { useSignUp } from "./useSignUp";
+import AuthInput from "../Auth/AuthInput";
 
 function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -16,19 +16,19 @@ function SignUpForm() {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit}>
-      <InputText
+      <AuthInput
         value={email}
         setValue={setEmail}
         isLoading={isLoading}
         type="email"
       />
-      <InputText
+      <AuthInput
         value={username}
         setValue={setUsername}
         isLoading={isLoading}
         type="username"
       />
-      <InputText
+      <AuthInput
         value={password}
         setValue={setPassword}
         isLoading={isLoading}
