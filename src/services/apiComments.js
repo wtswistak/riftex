@@ -1,11 +1,12 @@
 import supabase from "./supabase";
 
-export async function getComments(userId) {
+export async function getComments(userId, gameId) {
   if (!userId) return null;
   const { data, error } = await supabase
     .from("comments")
     .select("*")
-    .eq("user_id", userId);
+    .eq("user_id", userId)
+    .eq("game_id", gameId);
 
   if (error) {
     console.log("get comments error");
