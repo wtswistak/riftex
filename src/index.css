@@ -30,6 +30,22 @@
     background-color: red;
   }
 
+  .border-gradient::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      #bdbdbd25 20%,
+      #bdbdbd25 80%,
+      transparent 100%
+    );
+  }
+
   @keyframes loading {
     20% {
       background-position: 0% 0%, 50% 50%, 100% 50%;
