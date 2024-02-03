@@ -8,13 +8,14 @@ import { useGetComments } from "../features/Game/useComment";
 function Game() {
   const { id: gameId } = useParams();
   const { data, isLoading } = useFetch(`games/${gameId}`);
-  const { commentLoading, commentData } = useGetComments(gameId);
+  const { commentsLoading, comments } = useGetComments(gameId);
   return (
     <>
-      {(isLoading || commentLoading) && <Loader />}
+      {isLoading && <Loader />}
       <div className="px-20 max-xl:ml-4 max-md:mr-0 max-xl:px-4 max-sm:px-0 max-sm:mx-0">
         <GameDetails key={data.gameId} data={data} />
-        <CommentBox key={data.gameId} data={commentData} />
+        {commentsLoading && <Loader />}
+        <CommentBox key={data.gameId} comments={comments} />
       </div>
     </>
   );
