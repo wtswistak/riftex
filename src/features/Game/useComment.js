@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { getComments } from "../../services/apiComments";
 
 export function useGetComments(gameId) {
-  const { isLoading: commentLoading, data: commentData } = useQuery({
+  const { isLoading: commentsLoading, data: comments } = useQuery({
     queryKey: ["comments", gameId],
     queryFn: () => getComments(gameId),
   });
 
-  return { commentLoading, commentData };
+  return { commentsLoading, comments };
 }
