@@ -14,14 +14,15 @@ export async function getComments(gameId) {
   return data;
 }
 
-export async function addComment({ gameId, userId, comment }) {
+export async function addComment({ gameId, userId, content }) {
   const { error } = await supabase
     .from("comments")
     .insert([
       {
+        created_at: new Date(),
         game_id: gameId,
         user_id: userId,
-        comment: comment,
+        content: content,
       },
     ])
     .select();
